@@ -553,8 +553,17 @@ function getIntegerPartNumber(number) {
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
  */
-function getSumOfNumbers(/* x1, x2, x3 */) {
-  throw new Error('Not implemented');
+function getSumOfNumbers(x1, x2, x3) {
+  let min = Math.min(x1, x2, x3);
+  let counter = 1;
+  while (min < 0) {
+    min *= 10;
+    counter += 1;
+  }
+  return (
+    (x1 * 10 ** counter + x2 * 10 ** counter + x3 * 10 ** counter) /
+    10 ** counter
+  );
 }
 
 /**
